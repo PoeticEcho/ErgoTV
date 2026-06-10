@@ -325,7 +325,7 @@
         if (userH < 0) { userH = 0; document.getElementById('userH').value = 0; }
         if (userH > 200) { userH = 200; document.getElementById('userH').value = 200; }
         
-        if (roomW < 1000) { roomW = 1000; document.getElementById('roomWidth').value = 1000; }
+        if (roomW < 0) { roomW = 1000; document.getElementById('roomWidth').value = 1000; }
         if (roomW > 40000) { roomW = 40000; document.getElementById('roomWidth').value = 40000; }
 
         const errorMsgBox = document.getElementById('errorMsg');
