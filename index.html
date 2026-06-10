@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>인체공학 TV 최적 설치 높이 계산기</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght=300;400;600;700&display=swap');
         
         body { 
             font-family: 'Noto Sans KR', sans-serif; 
@@ -14,7 +14,7 @@
             padding: 10px; 
             color: #333; 
         }
-      .container { 
+     .container { 
             max-width: 800px; 
             margin: 0 auto; 
             background: white; 
@@ -24,19 +24,19 @@
             display: flex;
             flex-direction: column;
         }
-      .header {
+     .header {
             background-color: #1a365d;
             color: white;
             padding: 12px 10px;
             text-align: center;
         }
-      .header h2 { 
+     .header h2 { 
             margin: 0; 
             font-size: clamp(14px, 4vw, 18px); 
             font-weight: 700; 
         }
         
-      .input-grid {
+     .input-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 4px;
@@ -44,7 +44,7 @@
             background: #f8fafc;
             border-bottom: 1px solid #e2e8f0;
         }
-      .grid-label {
+     .grid-label {
             font-size: clamp(10px, 2.8vw, 13px);
             font-weight: 600;
             color: #4a5568;
@@ -54,7 +54,7 @@
             align-items: center;
             justify-content: center;
         }
-      .grid-input input {
+     .grid-input input {
             width: 100%;
             padding: 8px 0;
             text-align: center;
@@ -66,17 +66,17 @@
             box-sizing: border-box;
             -moz-appearance: textfield;
         }
-      .grid-input input::-webkit-outer-spin-button,
-      .grid-input input::-webkit-inner-spin-button {
+     .grid-input input::-webkit-outer-spin-button,
+     .grid-input input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-      .tv-input-wrapper {
+     .tv-input-wrapper {
             display: flex;
             gap: 2px;
         }
 
-      .error-msg {
+     .error-msg {
             background-color: #fed7d7;
             color: #c53030;
             padding: 10px;
@@ -87,7 +87,7 @@
             border-bottom: 1px solid #feb2b2;
         }
 
-      .svg-container {
+     .svg-container {
             width: 100%;
             background: #fff;
             padding: 10px 0;
@@ -99,31 +99,73 @@
             height: auto;
             max-height: 38vh;
         }
-      .anim-element { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+     .anim-element { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
 
-      .result-box { 
+     .recommend-bar {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #f8fafc; 
+            padding: 12px 15px; 
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 4px solid #1a365d;
+       }
+     .width-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+       }
+     .recommend-title {
+            font-size: clamp(10px, 2.8vw, 13px);
+            font-weight: 600;
+            color: #4a5568;
+       }
+     .width-input {
+            width: 75px; 
+            padding: 8px 0;
+            text-align: center;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: clamp(12px, 3.5vw, 15px);
+            font-weight: bold;
+            color: #2b6cb0;
+            box-sizing: border-box;
+       }
+     .recommend-btn {
+            background-color: #1a365d; 
+            color: white; 
+            border: none; 
+            padding: 8px 14px; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            font-size: 13px; 
+            cursor: pointer; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            transition: 0.2s;
+       }
+     .recommend-btn:hover { background-color: #112543; }
+
+     .result-box { 
             background-color: #ebf8ff; 
             border-top: 4px solid #3182ce; 
             padding: 12px 20px; 
         }
-      .result-box h3 { margin-top: 0; color: #2b6cb0; font-size: 15px; margin-bottom: 10px; border-bottom: 1px solid #bee3f8; padding-bottom: 6px;}
-      .result-item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 13px; }
-      .highlight { font-weight: 700; color: #e53e3e; font-size: 15px; }
+     .result-box h3 { margin-top: 0; color: #2b6cb0; font-size: 15px; margin-bottom: 10px; border-bottom: 1px solid #bee3f8; padding-bottom: 6px;}
+     .result-item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 13px; }
+     .highlight { font-weight: 700; color: #e53e3e; font-size: 15px; }
 
-      .academic-footer {
+     .academic-footer {
             background-color: #f7fafc;
             border-top: 1px solid #e2e8f0;
             padding: 12px 20px;
-            font-size: 10px;
+            font-size: 11px;
             color: #4a5568;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-      .academic-footer h4 { margin: 0 0 6px 0; color: #2d3748; font-size: 11px; }
-      .formula-box { background: white; padding: 6px; border-radius: 4px; border: 1px solid #edf2f7; margin-bottom: 6px; font-family: serif; }
-      .citations { padding-left: 12px; margin: 0; }
-      .citations li { margin-bottom: 6px; }
-      .citations a { color: #2b6cb0; text-decoration: underline; font-weight: 600; }
-      .citations a:hover { color: #1a365d; }
+     .academic-footer h4 { margin: 0 0 6px 0; color: #2d3748; font-size: 12px; }
+     .formula-box { background: white; padding: 6px; border-radius: 4px; border: 1px solid #edf2f7; margin-bottom: 8px; font-family: serif; }
+     .citations { padding-left: 15px; margin: 0; }
+     .citations li { margin-bottom: 6px; }
 
     </style>
 </head>
@@ -152,7 +194,7 @@
     <div id="errorMsg" class="error-msg"></div>
 
     <div class="svg-container">
-        <svg id="roomSvg" viewBox="0 0 4000 2500" preserveAspectRatio="xMidYMid meet">
+        <svg id="roomSvg" viewBox="0 0 4200 2500" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
                     <polygon points="0 0, 10 3.5, 0 7" fill="#718096" />
@@ -162,15 +204,15 @@
                 </marker>
             </defs>
 
-            <rect x="0" y="0" width="4000" height="2500" fill="#f7fafc" />
-            <line id="svgTopLine" x1="200" y1="100" x2="3800" y2="100" stroke="#cbd5e0" stroke-width="20" stroke-linecap="round"/> 
-            <line x1="200" y1="2400" x2="3800" y2="2400" stroke="#a0aec0" stroke-width="30" stroke-linecap="round"/> 
-            <line x1="200" y1="100" x2="200" y2="2400" stroke="#cbd5e0" stroke-width="20" /> 
-            <line x1="3800" y1="100" x2="3800" y2="2400" stroke="#cbd5e0" stroke-width="20" /> 
+            <rect x="0" y="0" width="10000" height="2500" fill="#f7fafc" />
+            <line id="svgTopLine" class="anim-element" x1="200" y1="100" x2="3800" y2="100" stroke="#cbd5e0" stroke-width="20" stroke-linecap="round"/> 
+            <line id="svgBottomLine" class="anim-element" x1="200" y1="2400" x2="3800" y2="2400" stroke="#a0aec0" stroke-width="30" stroke-linecap="round"/> 
+            <line id="svgLeftWall" x1="200" y1="100" x2="200" y2="2400" stroke="#cbd5e0" stroke-width="20" /> 
+            <line id="svgRightWall" class="anim-element" x1="3800" y1="100" x2="3800" y2="2400" stroke="#cbd5e0" stroke-width="20" /> 
             
             <rect id="svgTv" class="anim-element" x="210" y="920" width="60" height="960" fill="#2d3748" rx="10" />
             
-            <path id="svgSofa" class="anim-element" d="M 3790 2385 L 3790 1600 L 3640 1600 L 3640 2020 L 2950 2020 L 2950 2385 Z" fill="#e2e8f0" stroke="#a0aec0" stroke-width="5"/>
+            <path id="svgSofa" class="anim-element" fill="#e2e8f0" stroke="#a0aec0" stroke-width="5"/>
             
             <g id="svgPerson" class="anim-element">
                 <circle id="personHead" fill="#4a5568" /> 
@@ -180,17 +222,25 @@
                 <path id="personArm" fill="none" stroke="#4a5568" stroke-linecap="round" /> 
             </g>
 
-            <line id="svgSightLine" class="anim-element" x1="3470" y1="1320" x2="270" y2="1400" stroke="#e53e3e" stroke-width="8" stroke-dasharray="20, 15" />
+            <line id="svgSightLine" class="anim-element" stroke="#e53e3e" stroke-width="8" stroke-dasharray="20, 15" />
 
-            <line id="lineTvHeight" class="anim-element" x1="120" y1="2385" x2="120" y2="1400" stroke="#718096" stroke-width="6" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
-            <text id="txtTvHeight" class="anim-element" x="100" y="1900" transform="rotate(-90 100 1900)" fill="#4a5568" font-size="70" font-weight="bold" text-anchor="middle">1150 mm</text>
+            <line id="lineTvHeight" class="anim-element" x1="120" x2="120" y1="2400" stroke="#718096" stroke-width="6" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+            <text id="txtTvHeight" class="anim-element" x="100" fill="#4a5568" font-size="70" font-weight="bold" text-anchor="middle"></text>
 
-            <line id="lineEyeHeight" class="anim-element" x1="3900" y1="2385" x2="3900" y2="1320" stroke="#718096" stroke-width="6" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
-            <text id="txtEyeHeight" class="anim-element" x="3950" y="1850" transform="rotate(90 3950 1850)" fill="#4a5568" font-size="70" font-weight="bold" text-anchor="middle">1070 mm</text>
+            <line id="lineEyeHeight" class="anim-element" stroke="#718096" stroke-width="6" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+            <text id="txtEyeHeight" class="anim-element" fill="#4a5568" font-size="70" font-weight="bold" text-anchor="middle"></text>
 
-            <line id="lineCeiling" class="anim-element" x1="50" y1="2385" x2="50" y2="110" stroke="#cbd5e0" stroke-width="4" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
-            <text id="txtCeiling" class="anim-element" x="30" y="1250" transform="rotate(-90 30 1250)" fill="#a0aec0" font-size="60" text-anchor="middle">2300 mm</text>
+            <line id="lineCeiling" class="anim-element" x1="50" x2="50" y1="2400" stroke="#cbd5e0" stroke-width="4" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+            <text id="txtCeiling" class="anim-element" x="30" fill="#a0aec0" font-size="60" text-anchor="middle"></text>
         </svg>
+    </div>
+
+    <div class="recommend-bar">
+        <div class="width-input-group">
+            <span class="recommend-title">거실폭(mm)</span>
+            <input type="number" id="roomWidth" class="width-input" value="3800" min="1000" max="40000" oninput="updateAll()">
+        </div>
+        <button class="recommend-btn" onclick="recommendOptimalSize()">최적 크기 추천 ☑️</button>
     </div>
 
     <div class="result-box">
@@ -207,9 +257,9 @@
     <div class="academic-footer">
         <h4>🔬 공학적 산출 근거 (Ergonomics)</h4>
         <div class="formula-box">
-     [좌식 고려] 소파높이가 0일 경우, 바닥 좌식 시청 모드로 전환됩니다.<br>
-           [산출 공식] Eye Level(EL) = Stature × 0.43 (안정성, 경추앙각 보호)
-      </div>
+            <li>[좌식 고려] 소파높이가 0일 경우, 바닥 좌식 시청 모드로 전환됩니다.</li>
+            <li>[산출 공식] Eye Level(EL) = Stature × 0.43 (안정성, 경추앙각 보호)</li> 
+        </div>
         <ul class="citations">
             <li>
                 <a href="https://sizekorea.kr" target="_blank">국가기술표준원 Size Korea</a> 한국인 연령별 앉은 눈높이 비율 표준 적용 
@@ -236,27 +286,52 @@
         updateAll();
     }
 
+    function recommendOptimalSize() {
+        let roomWidthMm = parseFloat(document.getElementById('roomWidth').value) || 3800;
+        let ceilingHMm = parseFloat(document.getElementById('ceilingH').value) || 2300;
+        let optimalInch;
+
+        if (roomWidthMm > ceilingHMm * 3) {
+            let maxTvHeightMm = ceilingHMm - 400; 
+            let optimalInchRaw = (maxTvHeightMm - 26) / (25.4 * 0.4903);
+            optimalInch = Math.round(optimalInchRaw / 5) * 5;
+
+            alert(`⚠️ [초대형 공간 감지]\n입력하신 거실 폭(${roomWidthMm}mm)은 천장고(${ceilingHMm}mm)의 3배를 초과하는 광활한 공간입니다.\n\n이 조건에서 시야각 공식만 적용 시 물리적으로 실현 불가능한 크기가 도출됩니다.\n\n따라서 천장과 바닥면에 상하 200mm의 구조 안전 여백을 둔 실질적인 최대 설치 크기인 [ ${optimalInch}인치 ]를 완벽 추천합니다!`);
+        } else {
+            let effectiveDistanceMm = roomWidthMm - 360; 
+            let effectiveDistanceInch = effectiveDistanceMm / 25.4;
+            let optimalInchRaw = effectiveDistanceInch / 1.6;
+            optimalInch = Math.round(optimalInchRaw / 5) * 5;
+
+            alert(`입력하신 거실 폭(${roomWidthMm}mm) 기준\n\n눈동자 피로도가 가장 낮은 SMPTE 인체공학적 최적 TV 크기는 [ ${optimalInch}인치 ] 입니다!\n(입력창에 자동 적용되었습니다.)`);
+        }
+
+        document.getElementById('tvInch').value = optimalInch;
+        onInchChange(); 
+    }
+
     function updateAll() {
         let ceilingH = parseFloat(document.getElementById('ceilingH').value) || 2300;
         let sofaH = parseFloat(document.getElementById('sofaH').value) || 0;
         let userH = parseFloat(document.getElementById('userH').value) || 0;
         let tvHeightMm = parseFloat(document.getElementById('tvHeight').value) || 960;
         let tvInch = parseFloat(document.getElementById('tvInch').value) || 75;
+        let roomW = parseFloat(document.getElementById('roomWidth').value) || 3800;
 
-        // 양수 보정
         if (tvInch < 0) { tvInch = Math.abs(tvInch); document.getElementById('tvInch').value = tvInch; }
         if (tvHeightMm < 0) { tvHeightMm = Math.abs(tvHeightMm); document.getElementById('tvHeight').value = tvHeightMm; }
         if (ceilingH < 0) { ceilingH = Math.abs(ceilingH); document.getElementById('ceilingH').value = ceilingH; }
         if (sofaH < 0) { sofaH = 0; document.getElementById('sofaH').value = 0; }
-
         if (userH < 0) { userH = 0; document.getElementById('userH').value = 0; }
         if (userH > 200) { userH = 200; document.getElementById('userH').value = 200; }
+        
+        if (roomW < 1000) { roomW = 1000; document.getElementById('roomWidth').value = 1000; }
+        if (roomW > 40000) { roomW = 40000; document.getElementById('roomWidth').value = 40000; }
 
         const errorMsgBox = document.getElementById('errorMsg');
         const svgTv = document.getElementById('svgTv');
         let isError = false;
 
-        // --- 물리적 한계점 검증 (소파 높이 한계 체크) ---
         const maxSofaH = Math.round(ceilingH - ((userH * 10) / 2));
         
         if (sofaH > maxSofaH && userH > 0) {
@@ -274,7 +349,6 @@
             svgTv.setAttribute('fill', '#2d3748'); 
         }
 
-        // 눈높이 계산
         let dynamicSeatH = 0;
         let eyeLevel = 0;
 
@@ -289,13 +363,11 @@
         }
 
         const geomCenter = Math.round(ceilingH / 2);
-
         let targetCenter = geomCenter;
         if (Math.abs(eyeLevel - geomCenter) > 150) {
             targetCenter = eyeLevel; 
         }
 
-        // TV 한계 좌표 보정
         let tvTop = targetCenter + Math.round(tvHeightMm / 2);
         let tvBottom = targetCenter - Math.round(tvHeightMm / 2);
 
@@ -308,40 +380,52 @@
             tvTop -= shift; tvBottom -= shift; targetCenter -= shift;
         }
 
-        // 결과 텍스트 반영
         document.getElementById('resEyeLevel').innerText = userH > 0? eyeLevel + " mm" : "0 mm (시청자 없음)";
         document.getElementById('resGeomCenter').innerText = geomCenter + " mm";
         document.getElementById('resTargetCenter').innerText = targetCenter + " mm";
         document.getElementById('resTop').innerText = tvTop + " mm";
         document.getElementById('resBottom').innerText = tvBottom + " mm";
 
-        // SVG 드로잉 업데이트
         const floorY = 2400;
         const ceilingY = floorY - ceilingH;
-        
-        document.getElementById('lineCeiling').setAttribute('y2', ceilingY);
+        const X_end = 200 + roomW;
+
+        document.getElementById('roomSvg').setAttribute('viewBox', `0 0 ${X_end + 350} 2500`);
+
+        document.getElementById('svgTopLine').setAttribute('x2', X_end);
+        document.getElementById('svgBottomLine').setAttribute('x2', X_end);
+        document.getElementById('svgRightWall').setAttribute('x1', X_end);
+        document.getElementById('svgRightWall').setAttribute('x2', X_end);
+
+        // --- 천장고선 자바스크립트 수직 동기화 강제 적용 ---
+        const lineCeiling = document.getElementById('lineCeiling');
+        lineCeiling.setAttribute('x1', '50');
+        lineCeiling.setAttribute('x2', '50');
+        lineCeiling.setAttribute('y1', floorY);
+        lineCeiling.setAttribute('y2', ceilingY);
+
         document.getElementById('txtCeiling').textContent = ceilingH + " mm";
+        document.getElementById('txtCeiling').setAttribute('x', '30');
         document.getElementById('txtCeiling').setAttribute('y', ceilingY + (ceilingH/2));
         document.getElementById('txtCeiling').setAttribute('transform', `rotate(-90 30 ${ceilingY + (ceilingH/2)})`);
-        
-        const SVG_CEILING = document.getElementById('svgTopLine');
-        if(SVG_CEILING) {
-            SVG_CEILING.setAttribute('y1', ceilingY);
-            SVG_CEILING.setAttribute('y2', ceilingY);
-        }
 
         const tvY = floorY - tvTop;
         const tvCenterY = floorY - targetCenter;
-        
         svgTv.setAttribute('height', tvHeightMm);
         svgTv.setAttribute('y', tvY);
 
-        document.getElementById('lineTvHeight').setAttribute('y2', tvCenterY);
+        // --- TV 높이선 자바스크립트 수직 동기화 강제 적용 ---
+        const lineTvHeight = document.getElementById('lineTvHeight');
+        lineTvHeight.setAttribute('x1', '120');
+        lineTvHeight.setAttribute('x2', '120');
+        lineTvHeight.setAttribute('y1', floorY);
+        lineTvHeight.setAttribute('y2', tvCenterY);
+
         document.getElementById('txtTvHeight').textContent = targetCenter + " mm";
+        document.getElementById('txtTvHeight').setAttribute('x', '100');
         document.getElementById('txtTvHeight').setAttribute('y', tvCenterY + (targetCenter/2));
         document.getElementById('txtTvHeight').setAttribute('transform', `rotate(-90 100 ${tvCenterY + (targetCenter/2)})`);
 
-        // 인체 비례 그래픽 업데이트
         const svgPersonG = document.getElementById('svgPerson');
         const personHead = document.getElementById('personHead');
         const personEye = document.getElementById('personEye');
@@ -356,6 +440,7 @@
             svgSightLine.style.display = 'none';
             document.getElementById('lineEyeHeight').style.display = 'none';
             document.getElementById('txtEyeHeight').style.display = 'none';
+            svgSofa.style.display = 'none';
         } else {
             svgPersonG.style.display = 'block';
             svgSightLine.style.display = 'block';
@@ -368,19 +453,20 @@
             const eyeYOffset = headRadius * 0.12;
             const torsoWidth = Math.max(12, stature * 0.022); 
             const armWidth = Math.max(8, stature * 0.016);
+            const sittingEyeH = Math.round(stature * 0.43);
 
             let X_hip, Y_hip, X_eye, Y_eye;
 
             if (sofaH > 0) {
                 svgSofa.style.display = 'block';
                 const sofaTopY = floorY - sofaH;
-                const sofaPath = `M 3790 ${floorY} L 3790 ${sofaTopY - 400} L 3640 ${sofaTopY - 400} L 3640 ${sofaTopY} L 2950 ${sofaTopY} L 2950 ${floorY} Z`;
+                const sofaPath = `M ${X_end - 10} ${floorY} L ${X_end - 10} ${sofaTopY - 400} L ${X_end - 160} ${sofaTopY - 400} L ${X_end - 160} ${sofaTopY} L ${X_end - 850} ${sofaTopY} L ${X_end - 850} ${floorY} Z`;
                 svgSofa.setAttribute('d', sofaPath);
 
-                X_hip = 3550;
-                Y_hip = floorY - dynamicSeatH;
+                X_hip = X_end - 250; 
+                Y_hip = floorY - (isError? (sofaH - (userH > 120? 40 : 10)) : dynamicSeatH);
                 X_eye = X_hip - 40; 
-                Y_eye = Y_hip - (stature * 0.43);
+                Y_eye = Y_hip - sittingEyeH;
 
                 personHead.setAttribute('cx', X_eye + 40);
                 personHead.setAttribute('cy', Y_eye);
@@ -406,7 +492,7 @@
             } else {
                 svgSofa.style.display = 'none';
 
-                X_hip = 3700; 
+                X_hip = X_end - 100; 
                 Y_hip = floorY;
                 X_eye = X_hip - 30;
                 Y_eye = floorY - eyeLevel;
@@ -434,15 +520,21 @@
 
             const currentEyeY = floorY - eyeLevel;
 
+            document.getElementById('lineEyeHeight').setAttribute('x1', X_end + 100);
+            document.getElementById('lineEyeHeight').setAttribute('x2', X_end + 100);
+            document.getElementById('lineEyeHeight').setAttribute('y1', floorY);
             document.getElementById('lineEyeHeight').setAttribute('y2', currentEyeY);
+            
             document.getElementById('txtEyeHeight').textContent = eyeLevel + " mm";
+            document.getElementById('txtEyeHeight').setAttribute('x', X_end + 150);
             document.getElementById('txtEyeHeight').setAttribute('y', currentEyeY + (eyeLevel/2));
-            document.getElementById('txtEyeHeight').setAttribute('transform', `rotate(90 3950 ${currentEyeY + (eyeLevel/2)})`);
+            document.getElementById('txtEyeHeight').setAttribute('transform', `rotate(90 ${X_end + 150} ${currentEyeY + (eyeLevel/2)})`);
 
             const pupilX = X_eye + (sofaH > 0? 50 : 40) - eyeXOffset;
             const pupilY = currentEyeY - eyeYOffset;
             svgSightLine.setAttribute('x1', pupilX);
             svgSightLine.setAttribute('y1', pupilY);
+            svgSightLine.setAttribute('x2', 270);
             svgSightLine.setAttribute('y2', tvCenterY);
         }
     }
